@@ -24,11 +24,14 @@ for (let i = 0; i < 10; i++) {
 
 function countBig(bignum) {
     /// Add code here that returns a Promise that will resolve after it has counted to bignum
-    return new Promise((resolve) => {
-        for (let i = 0; i <= bignum; i++) {
-            if (i == bignum) resolve();
-            }
-        });
+    let p = new Promise((resolve, reject) => {
+        for (let i = 0; i < bignum;) {
+            i++
+        }
+        if (i === bignum) resolve();
+        else reject();
+    });
+    return p;
 }
 
 
